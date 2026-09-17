@@ -4,120 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CalculaFinanzas - Calculadoras financieras gratuitas</title>
+    <title>Calculadora de Sueldo Neto 2026 | CalculaFinanzas</title>
 
-    <meta name="description"
-          content="CalculaFinanzas ofrece herramientas financieras gratuitas para calcular, comparar y entender mejor tus finanzas.">
+    <meta name="description" content="Calcula tu sueldo neto estimado en España en 2026 a partir de tu salario bruto.">
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #1f2937;
+            background: #f4f7fb;
+            color: #222;
         }
 
         header {
-            background: #123c69;
+            background: #1769e0;
             color: white;
-            padding: 25px 20px;
-        }
-
-        .header-content {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .subtitle {
-            margin-top: 8px;
-            color: #dbeafe;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .intro {
             text-align: center;
-            margin-bottom: 35px;
+            padding: 30px 20px;
         }
 
-        .intro h1 {
-            font-size: 34px;
-            margin-bottom: 12px;
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
         }
 
-        .intro p {
-            color: #64748b;
-            font-size: 17px;
+        header p {
+            margin: 0;
+            font-size: 16px;
         }
 
-        .calculators {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        .container {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 0 20px;
         }
 
         .card {
             background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
         }
 
         .card h2 {
-            margin-bottom: 12px;
-            font-size: 21px;
+            margin-top: 0;
+            color: #1769e0;
         }
 
-        .card p {
-            color: #64748b;
-            line-height: 1.5;
+        .form-group {
             margin-bottom: 20px;
         }
 
-        .button {
-            display: inline-block;
-            background: #123c69;
-            color: white;
-            padding: 11px 18px;
-            border-radius: 7px;
-            text-decoration: none;
+        label {
+            display: block;
             font-weight: bold;
+            margin-bottom: 8px;
         }
 
-        .button:hover {
-            background: #0d2d4f;
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccd4df;
+            border-radius: 8px;
+            font-size: 16px;
         }
 
-        .coming-soon {
-            background: #f1f5f9;
-            color: #64748b;
-            padding: 9px 12px;
-            border-radius: 6px;
-            display: inline-block;
-            font-size: 14px;
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #1769e0;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #1769e0;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1257bd;
+        }
+
+        .resultado {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 10px;
+            background: #eef5ff;
+            border: 1px solid #c9ddff;
+        }
+
+        .resultado h3 {
+            margin-top: 0;
+            color: #1769e0;
+        }
+
+        .resultado-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #dce6f5;
+        }
+
+        .resultado-item:last-child {
+            border-bottom: none;
+        }
+
+        .resultado-item strong {
+            font-size: 18px;
+        }
+
+        .aviso {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+            margin-top: 20px;
         }
 
         footer {
-            margin-top: 60px;
-            background: #111827;
-            color: #9ca3af;
             text-align: center;
-            padding: 25px 20px;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 26px;
+            }
+
+            .card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -125,73 +155,193 @@
 <body>
 
 <header>
-    <div class="header-content">
-        <div class="logo">CalculaFinanzas</div>
-        <div class="subtitle">
-            Herramientas financieras gratuitas para calcular, comparar y entender mejor tus finanzas.
-        </div>
-    </div>
+    <h1>💶 Calculadora de Sueldo Neto</h1>
+    <p>Calcula tu sueldo neto estimado en España para 2026</p>
 </header>
 
-<main>
+<div class="container">
 
-    <section class="intro">
-        <h1>Calculadoras financieras gratuitas</h1>
+    <div class="card">
+
+        <h2>Introduce tus datos</h2>
+
+        <div class="form-group">
+            <label for="bruto">Salario bruto anual (€)</label>
+            <input
+                type="number"
+                id="bruto"
+                placeholder="Ejemplo: 30000"
+                min="0"
+                step="100"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="pagas">Número de pagas</label>
+            <select id="pagas">
+                <option value="12">12 pagas</option>
+                <option value="14">14 pagas</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="situacion">Situación familiar</label>
+            <select id="situacion">
+                <option value="soltero">Soltero/a</option>
+                <option value="casado">Casado/a</option>
+                <option value="monoparental">Familia monoparental</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="hijos">Número de hijos</label>
+            <select id="hijos">
+                <option value="0">0 hijos</option>
+                <option value="1">1 hijo</option>
+                <option value="2">2 hijos</option>
+                <option value="3">3 hijos</option>
+                <option value="4">4 o más hijos</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="contrato">Tipo de contrato</label>
+            <select id="contrato">
+                <option value="indefinido">Indefinido</option>
+                <option value="temporal">Temporal</option>
+            </select>
+        </div>
+
+        <button onclick="calcularSueldo()">
+            Calcular sueldo neto
+        </button>
+
+        <div class="resultado" id="resultado">
+
+            <h3>📊 Resultado estimado</h3>
+
+            <div class="resultado-item">
+                <span>Salario bruto anual</span>
+                <strong id="resultadoBruto">0 €</strong>
+            </div>
+
+            <div class="resultado-item">
+                <span>Seguridad Social estimada</span>
+                <strong id="resultadoSS">0 €</strong>
+            </div>
+
+            <div class="resultado-item">
+                <span>IRPF estimado</span>
+                <strong id="resultadoIRPF">Pendiente</strong>
+            </div>
+
+            <div class="resultado-item">
+                <span>Salario neto anual</span>
+                <strong id="resultadoNeto">Pendiente</strong>
+            </div>
+
+            <div class="resultado-item">
+                <span>Salario neto por paga</span>
+                <strong id="resultadoMensual">Pendiente</strong>
+            </div>
+
+            <p class="aviso">
+                Esta herramienta está en desarrollo. El resultado mostrado
+                actualmente es una estimación y no sustituye una nómina ni
+                el cálculo oficial de la Agencia Tributaria.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>¿Cómo funciona?</h2>
+
         <p>
-            Herramientas sencillas para ayudarte a entender mejor tu dinero.
+            La calculadora tendrá en cuenta diferentes factores que afectan
+            al salario neto, como las cotizaciones a la Seguridad Social,
+            la retención de IRPF y la situación personal del trabajador.
         </p>
-    </section>
 
-    <section class="calculators">
+        <p>
+            Nuestro objetivo es ofrecer una herramienta sencilla,
+            transparente y gratuita para entender mejor cuánto dinero
+            llega realmente a tu cuenta.
+        </p>
 
-        <div class="card">
-            <h2>💶 Calculadora de sueldo neto</h2>
+    </div>
 
-            <p>
-                Calcula aproximadamente cuánto dinero recibirás
-                después de impuestos y cotizaciones.
-            </p>
-
-            <span class="coming-soon">
-                Próximamente
-            </span>
-        </div>
-
-
-        <div class="card">
-            <h2>📈 Calculadora de interés compuesto</h2>
-
-            <p>
-                Descubre cómo puede crecer tu dinero con el paso
-                del tiempo gracias al interés compuesto.
-            </p>
-
-            <span class="coming-soon">
-                Próximamente
-            </span>
-        </div>
-
-
-        <div class="card">
-            <h2>🏠 Calculadora de hipoteca</h2>
-
-            <p>
-                Calcula cuotas, intereses y coste total de una
-                hipoteca.
-            </p>
-
-            <span class="coming-soon">
-                Próximamente
-            </span>
-        </div>
-
-    </section>
-
-</main>
+</div>
 
 <footer>
-    © 2026 CalculaFinanzas · Herramientas financieras gratuitas
+    © 2026 CalculaFinanzas · Calculadoras financieras gratuitas
 </footer>
+
+<script>
+
+function calcularSueldo() {
+
+    const bruto = parseFloat(
+        document.getElementById("bruto").value
+    );
+
+    const pagas = parseInt(
+        document.getElementById("pagas").value
+    );
+
+    if (isNaN(bruto) || bruto <= 0) {
+
+        alert("Introduce un salario bruto anual válido.");
+
+        return;
+    }
+
+    /*
+        Cálculo provisional de Seguridad Social.
+
+        Los porcentajes definitivos y los límites correspondientes
+        se implementarán en la siguiente fase.
+    */
+
+    const seguridadSocial = bruto * 0.05;
+
+    const netoProvisional = bruto - seguridadSocial;
+
+    const netoPorPaga = netoProvisional / pagas;
+
+    document.getElementById("resultadoBruto").textContent =
+        bruto.toLocaleString("es-ES", {
+            style: "currency",
+            currency: "EUR"
+        });
+
+    document.getElementById("resultadoSS").textContent =
+        seguridadSocial.toLocaleString("es-ES", {
+            style: "currency",
+            currency: "EUR"
+        });
+
+    document.getElementById("resultadoIRPF").textContent =
+        "Se calculará en la siguiente fase";
+
+    document.getElementById("resultadoNeto").textContent =
+        netoProvisional.toLocaleString("es-ES", {
+            style: "currency",
+            currency: "EUR"
+        });
+
+    document.getElementById("resultadoMensual").textContent =
+        netoPorPaga.toLocaleString("es-ES", {
+            style: "currency",
+            currency: "EUR"
+        });
+
+    document.getElementById("resultado").style.display = "block";
+}
+
+</script>
 
 </body>
 </html>
